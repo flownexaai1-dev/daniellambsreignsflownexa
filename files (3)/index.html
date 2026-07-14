@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Lambs Reigns — Flonnexa</title>
+<link rel="icon" type="image/x-icon" href="c:\Users\danie\Downloads\files (3)\logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="c:\Users\danie\Downloads\files (3)\favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="c:\Users\danie\Downloads\files (3)\favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="c:\Users\danie\Downloads\files (3)\favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="c:\Users\danie\Downloads\files (3)\favicon-512.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="c:\Users\danie\Downloads\files (3)\logo.png" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #12172A;
+    --void: #0A0D18;
+    --parchment: #F3EFE6;
+    --copper: #C97A44;
+    --gold: #E7B24F;
+    --mist: #8D96AC;
+    --line: rgba(243,239,230,0.14);
+    --max: 1160px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  img{display:block;max-width:100%;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--copper);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.06;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    padding:22px 0;
+    background:linear-gradient(to bottom, rgba(10,13,24,0.9), rgba(10,13,24,0));
+    backdrop-filter:blur(2px);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.08em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo span{color:var(--copper);}
+  .logo img{height:26px;width:auto;display:block;}
+  .footer-logo{height:20px;width:auto;display:block;opacity:0.85;}
+  .navlinks{
+    display:flex;
+    gap:32px;
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .navlinks a{
+    opacity:0.75;
+    transition:opacity .2s;
+    padding:6px 2px;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{opacity:1; outline:none; border-bottom:1px solid var(--copper);}
+  .navlinks a.cta{
+    opacity:1;
+    color:var(--void);
+    background:var(--gold);
+    padding:9px 16px;
+    border-radius:2px;
+  }
+  .navlinks a.cta:hover{background:var(--copper); border-bottom:none;}
+
+  @media (max-width:720px){
+    .navlinks .link-item{display:none;}
+    .navlinks{gap:0;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding:140px 0 80px;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-flow{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-copy{position:relative; z-index:1;}
+  .hero-copy .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(40px, 6vw, 74px);
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold);
+  }
+  .hero-role{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--mist);
+    max-width:46ch;
+  }
+  .hero-actions{
+    margin-top:38px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:15px 26px;
+    border-radius:2px;
+    transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--void);
+    font-weight:700;
+  }
+  .btn-primary:hover{background:var(--copper); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line);
+    color:var(--parchment);
+  }
+  .btn-ghost:hover{border-color:var(--copper); color:var(--copper); transform:translateY(-2px);}
+
+  .hero-portrait{
+    position:relative;
+    z-index:1;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:3px;
+    border:1px solid var(--line);
+  }
+  .hero-portrait img{
+    width:100%;height:100%;object-fit:cover;object-position:center 15%;
+    filter:saturate(0.92) contrast(1.03);
+  }
+  .hero-portrait::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 55%, rgba(10,13,24,0.55) 100%);
+  }
+  .hero-tag{
+    position:absolute;
+    bottom:18px;left:18px;right:18px;
+    z-index:2;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--parchment);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .hero-portrait{max-width:340px;}
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-flex;
+    gap:40px;
+    animation:scroll 32s linear infinite;
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--mist);
+  }
+  .marquee-track span{display:flex; align-items:center; gap:40px;}
+  .marquee-track b{color:var(--copper); font-weight:400;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:120px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:64px;
+  }
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{
+    font-size:clamp(30px,4vw,46px);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about .wrap{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-portrait{
+    position:relative;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    border-radius:3px;
+    border:1px solid var(--line);
+  }
+  .about-portrait img{width:100%;height:100%;object-fit:cover; object-position: center 18%; filter:saturate(0.92);}
+  .about-body p{
+    font-size:17px;
+    color:#DAD5C8;
+    margin-bottom:20px;
+    max-width:58ch;
+  }
+  .about-body p:first-of-type{
+    font-size:21px;
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-style:italic;
+    color:var(--parchment);
+    line-height:1.45;
+  }
+  .about-stats{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    border-top:1px solid var(--line);
+    padding-top:28px;
+  }
+  .about-stats div b{
+    display:block;
+    font-family:'Fraunces',serif;
+    font-size:28px;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .about-stats div span{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--mist);
+  }
+
+  @media (max-width:860px){
+    .about .wrap{grid-template-columns:1fr;}
+    .about-portrait{max-width:320px;}
+  }
+
+  /* ---------- SERVICES / FLOW ---------- */
+  .services{background:var(--void);}
+  .flow-list{
+    position:relative;
+    max-width:820px;
+  }
+  .flow-spine{
+    position:absolute;
+    left:11px;
+    top:10px;
+    bottom:10px;
+    width:2px;
+    background:var(--line);
+  }
+  .flow-spine-fill{
+    position:absolute;
+    left:0;top:0;
+    width:100%;
+    height:0%;
+    background:linear-gradient(180deg, var(--copper), var(--gold));
+    transition:height .1s linear;
+  }
+  .flow-node{
+    position:relative;
+    padding:0 0 56px 56px;
+  }
+  .flow-node:last-child{padding-bottom:0;}
+  .flow-dot{
+    position:absolute;
+    left:2px; top:2px;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:var(--void);
+    border:2px solid var(--mist);
+    transition:border-color .3s, background .3s;
+  }
+  .flow-node.in-view .flow-dot{
+    border-color:var(--gold);
+    background:var(--gold);
+  }
+  .flow-node h3{
+    font-size:24px;
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .flow-node p{
+    color:var(--mist);
+    font-size:15.5px;
+    max-width:50ch;
+  }
+  .flow-index{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--copper);
+    letter-spacing:0.08em;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--void);
+    text-align:center;
+    position:relative;
+  }
+  .contact .eyebrow{display:block; margin-bottom:24px;}
+  .contact h2{
+    font-size:clamp(34px,6vw,64px);
+    max-width:16ch;
+    margin:0 auto 34px;
+  }
+  .email-cta{
+    display:inline-block;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(24px,4.4vw,40px);
+    color:var(--gold);
+    border-bottom:2px solid var(--copper);
+    padding-bottom:6px;
+    transition:color .2s, border-color .2s;
+    word-break:break-word;
+  }
+  .email-cta:hover{color:var(--parchment); border-color:var(--gold);}
+  .contact-sub{
+    margin-top:26px;
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    color:var(--mist);
+    letter-spacing:0.04em;
+  }
+  .contact-sub a{border-bottom:1px dotted var(--mist); padding-bottom:1px;}
+  .contact-sub a:hover{color:var(--copper); border-color:var(--copper);}
+  .contact-note{
+    margin-top:48px;
+    font-size:13px;
+    color:var(--mist);
+    max-width:44ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'Space Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    color:var(--mist);
+    text-transform:uppercase;
+  }
+  @media (max-width:600px){
+    footer .wrap{flex-direction:column; gap:10px; text-align:center;}
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><img src="c:\Users\danie\Downloads\files (3)\logo.png"> FLON<span>NEXA</span></div>
+    <div class="navlinks">
+      <a class="link-item" href="#about">About</a>
+      <a class="link-item" href="#services">Services</a>
+      <a class="cta" href="mailto:flownexaai1@gmail.com">Email Daniel</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="hero-flow" viewBox="0 0 1160 700" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -50 600 C 250 500, 350 300, 650 340 S 1050 150, 1250 80" fill="none" stroke="#C97A44" stroke-width="1" opacity="0.5"/>
+    <path d="M -50 680 C 300 620, 420 400, 700 430 S 1000 250, 1250 200" fill="none" stroke="#E7B24F" stroke-width="1" opacity="0.35"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Flonnexa &mdash; Kampala, Uganda</span>
+      <h1>Daniel Lambs<br><em>Reigns.</em></h1>
+      <p class="hero-role">One partner for the whole build: design, code, AI, and the sales table &mdash; so you're not managing five different vendors to get one thing done.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:flownexaai1@gmail.com">flownexaai1@gmail.com</a>
+        <a class="btn btn-ghost" href="tel:+256742096022">0742 096 022</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="c:\Users\danie\Downloads\IMG_2368.jpg" alt="c:\Users\danie\Downloads\IMG_2368.jpg">
+      <div class="hero-tag"><span>Founder, Flonnexa</span><span>Est. Kampala</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><b>Web Design</b> · Sales Management · <b>Negotiation</b> · AI Services · <b>Custom Systems</b> · Mobile &amp; Web Apps · <b>Consulting</b> · Tech Support ·</span>
+    <span><b>Web Design</b> · Sales Management · <b>Negotiation</b> · AI Services · <b>Custom Systems</b> · Mobile &amp; Web Apps · <b>Consulting</b> · Tech Support ·</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-portrait reveal">
+      <img src="c:\Users\danie\Downloads\IMG_2368.jpg">
+    </div>
+    <div class="about-body reveal">
+      <span class="eyebrow">About</span>
+      <p>Flonnexa exists because most technical problems are also business problems &mdash; and most business problems need someone who can actually build the fix.</p>
+      <p>I'm Daniel, founder of Flonnexa. I move between the technical side and the table where decisions get made &mdash; writing the system on one end, negotiating the deal that funds it on the other. That range is the whole point: fewer handoffs, fewer people to loop in, one person who understands the problem end to end.</p>
+      <p>Whether it's a website that needs to convert, a sales process that needs closing, or an AI tool that needs building &mdash; I'd rather be the one call you make than the fifth.</p>
+      <div class="about-stats">
+        <div><b>8</b><span>Service lines</span></div>
+        <div><b>1:1</b><span>Direct with Daniel</span></div>
+        <div><b>UG</b><span>Based in Kampala</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I do</span>
+      <h2>Every stage of getting from problem to product.</h2>
+    </div>
+    <div class="flow-list">
+      <div class="flow-spine"><div class="flow-spine-fill" id="flowFill"></div></div>
+
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">01</span>
+        <h3>Web Design</h3>
+        <p>Clean, fast websites built to represent your business properly and turn visitors into customers.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">02</span>
+        <h3>Sales Management</h3>
+        <p>Structuring and running your sales process &mdash; pipeline, follow-up, and the discipline to close what's open.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">03</span>
+        <h3>Negotiation</h3>
+        <p>Representing your side of the table on deals, pricing, and partnerships where the terms actually matter.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">04</span>
+        <h3>AI Services</h3>
+        <p>Practical AI tools and integrations built around a real workflow, not a demo.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">05</span>
+        <h3>Custom System Development</h3>
+        <p>Software built around how your business actually runs, not the other way around.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">06</span>
+        <h3>Mobile &amp; Web Applications</h3>
+        <p>End-to-end app builds, from first sketch to something live in people's hands.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">07</span>
+        <h3>Problem-Solving Solutions</h3>
+        <p>When the issue doesn't have an obvious owner or off-the-shelf fix &mdash; that's usually where I get called in.</p>
+      </div>
+      <div class="flow-node reveal">
+        <div class="flow-dot"></div>
+        <span class="flow-index">08</span>
+        <h3>Consulting &amp; Tech Support</h3>
+        <p>Ongoing advice and hands-on support, so problems get fixed before they become expensive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Email is the fastest way to reach me &mdash; I read every one.</h2>
+    <a class="email-cta" href="mailto:flownexaai1@gmail.com">flownexaai1@gmail.com</a>
+    <div class="contact-sub">Prefer a call? <a href="tel:+256742096022">0742 096 022</a></div>
+    <p class="contact-note">Send a line about what you're trying to solve &mdash; web, sales, AI, or something that doesn't fit a category yet. I'll reply from there.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span style="display:flex;align-items:center;gap:10px;"><img class="footer-logo" src="images/logo.png" alt="Flonnexa logo"> &copy; 2026 Flonnexa &mdash; Daniel Lambs Reigns</span>
+    <span>flownexaai1@gmail.com &middot; 0742 096 022</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .flow-node');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold:0.2});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Flow spine fill based on scroll through the services section
+  const spine = document.querySelector('.flow-list');
+  const fill = document.getElementById('flowFill');
+  function updateFill(){
+    if(!spine || !fill) return;
+    const rect = spine.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = rect.height;
+    let progress = (vh * 0.75 - rect.top) / total;
+    progress = Math.max(0, Math.min(1, progress));
+    fill.style.height = (progress*100) + '%';
+  }
+  window.addEventListener('scroll', updateFill, {passive:true});
+  window.addEventListener('resize', updateFill);
+  updateFill();
+</script>
+
+</body>
+</html>
